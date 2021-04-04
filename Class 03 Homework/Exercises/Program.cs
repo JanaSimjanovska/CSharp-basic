@@ -113,6 +113,40 @@ namespace Exercises
             }
             #endregion
 
+            #region Task 03
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Task 03 - Exercise 06 from class");
+
+            // Task 03 - Exercise 06 from class
+            // ● Create an array with names
+            // ● Give an option to the user to enter a name from the keyboard
+            // ● After entering the name put it in the array
+            // ● Ask the user if they want to enter another name(Y / N)
+            // ● Do the same process over and over until the user enters N
+            // ● Print all the names after user enters N
+
+            string[] arrayOfNames = new string[0];
+            string yesOrNo = "y";
+
+
+            while (yesOrNo != "n")
+            {
+                Console.WriteLine("Enter a name:");
+
+                Array.Resize(ref arrayOfNames, arrayOfNames.Length + 1);
+                arrayOfNames[arrayOfNames.Length - 1] = Console.ReadLine();
+
+                Console.WriteLine("Do you want to enter another name (Y / N)?");
+                yesOrNo = Console.ReadLine().ToLower();
+            }
+
+            Console.WriteLine("The names in the array are as follows:");
+            foreach (string name in arrayOfNames)
+            {
+                Console.WriteLine($"{Array.IndexOf(arrayOfNames, name) + 1}. {name}");
+            }
+            #endregion
+
             Console.ReadLine();
         }
     }
