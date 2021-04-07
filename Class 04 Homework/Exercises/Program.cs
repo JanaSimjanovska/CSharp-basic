@@ -169,8 +169,13 @@ namespace Exercises
 
 
         #region Task 02
+        
         static void RemoveExtraSpace(string someString)
         {
+            // Task 02
+            //Create a new method that will remove extra space characters
+            //* Call the method with the following text: The    best  Lorem  Ipsum        Generator in all the  sea!   Heave this   scurvy copyfiller fer yar         next   adventure  and cajol yar clients   into walking the plank with ev'ry layout!    Configure       above, then get yer pirate ipsum... own the high seas,    argh!
+
             someString = someString.Trim();
             string outputString = "";
             string []someStringArray = someString.Split(" ");
