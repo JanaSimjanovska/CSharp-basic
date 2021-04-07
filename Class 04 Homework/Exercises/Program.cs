@@ -102,7 +102,7 @@ namespace Exercises
             foreach (string word in ArrayOfAllWords)
             {
                 word.Trim();
-                if (word.Length == 0) // With some of the strings with which I tested this solution, the array with all the words that I am getting with .Split(" ") sometimes contains empty strings as elements (I think this happens when I enter some string like this "sdkfj 959 -05 ksjdfhv ksd", so when I remove all the unnecessary characters with the regex, it returns two empty spaces in a row, and  I guess that the split method treats one of them as a string, since I use only one empty space as a separator. I don't use this validation with the previous task (print largest word), since i have a while loop at the beginning that makes sure that the user's input will always be at least one character long, so in that case, that will automatically be the largest word, even if there are empty spaces in the string.
+                if (word.Length == 0) // With some of the strings with which I tested this solution, the array with all the words that I am getting with .Split(" ") sometimes contains empty strings as elements (I think this happens when I enter some string like this "sdkfj 959 -05 ksjdfhv ksd", so when I remove all the unnecessary characters with the regex, it returns two empty spaces in a row, and I guess that the split method treats one of them as a string, since I use only one empty space as a separator. I don't use this validation with the previous task (print largest word), since i have a while loop at the beginning that makes sure that the user's input will always be at least one character long, so in that case, that will automatically be the largest word, even if there are empty spaces in the string.
                     continue;
                 else if(word.Length < wordLength2)
                 {
@@ -141,7 +141,7 @@ namespace Exercises
 
             string noSpacesString = onlyLettersAndNumbersString.Replace(" ", "");
             char[] lettersOnlyArray = noSpacesString.ToCharArray();
-            char mostOccurencies = '0';
+            char mostOccurences = '0';
             int counter = 0;
             int counterAtEndOfLoop = 0;
             
@@ -152,7 +152,7 @@ namespace Exercises
                     if (character == lettersOnlyArray[i])
                     {
                         counter++;
-                        mostOccurencies = character;
+                        mostOccurences = character;
                     }
                 }
                 if(counter > counterAtEndOfLoop)
@@ -161,8 +161,8 @@ namespace Exercises
                 }
                 counter = 0;
             }
-            Console.WriteLine($"The most used character in your input is the character \"{mostOccurencies}\", and it appears {counterAtEndOfLoop} times in the sentence.");
-           // This solution is rather imperfect too, in the sense that if some of the characters appear the same number of times in the string, and it so happens that they are the characters with the most occurencies as well, this solution will tell the user that the char with the most occurencies is the one that occurs last in the string, even though another character may have appeared equal number of times before the one that is printed.
+            Console.WriteLine($"The most used character in your input is the character \"{mostOccurences}\", and it appears {counterAtEndOfLoop} times in the sentence.");
+           // This solution is rather imperfect too, in the sense that if some of the characters appear the same number of times in the string, and it so happens that they are the characters with the most occurences as well, this solution will tell the user that the char with the most occurences is the one that occurs last in the string, even though another character may have appeared equal number of times before the one that is printed.
             #endregion
         }
         #endregion
