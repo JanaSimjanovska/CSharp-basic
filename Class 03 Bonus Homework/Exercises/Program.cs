@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Exercises
 {
@@ -47,6 +48,7 @@ namespace Exercises
 
 
             #region Task 03
+
             Console.WriteLine("------------------------------");
             Console.WriteLine("Task 03");
             //3.Write a program to calculate y = x ^ n
@@ -59,25 +61,28 @@ namespace Exercises
             double xToThePowerOfN = 1; // Prvo ja imav namesteno na 0, pa se cudev edno minuta vreme zaso ne mi raboti zadacata hahahah
             
 
-            if (!isXSuccess || !isYSuccess)
-                Console.WriteLine("Please enter valid integers!");
-            else
+            while (!isXSuccess || !isYSuccess)
             {
-                for (int i = 0; i < System.Math.Abs(n); i++)
-                {
-                    if (n == 0)
-                        xToThePowerOfN = 1;
-
-                    else
-                        xToThePowerOfN *= x;
-                }
+                Console.WriteLine("Please enter valid numerical values!");
+                Console.WriteLine("Enter a number for x:");
+                isXSuccess = double.TryParse(Console.ReadLine(), out x);
+                Console.WriteLine("Enter an integer for n:");
+                isYSuccess = int.TryParse(Console.ReadLine(), out n);
             }
 
+            for (int i = 0; i < System.Math.Abs(n); i++)
+            {
+                if (n == 0)
+                    xToThePowerOfN = 1;
 
-            if(n < 0)
+                else
+                    xToThePowerOfN *= x;
+            }
+            if (n < 0)
                 Console.WriteLine($"{x} to the power of {n} is {1 / xToThePowerOfN}.");
             else
                 Console.WriteLine($"{x} to the power of {n} is {xToThePowerOfN}.");
+
             #endregion
 
 
@@ -87,6 +92,25 @@ namespace Exercises
             //4.Write a program that will determine from n numbers(entered from the keyboard)
             //the number of numbers that are divisible by 3, when divided by 3 have a remainder of 1,
             //when divided by 3 have a remainder of 2.
+
+            // Najdi nacin na sekoe sekoj input da go validiras deka e broj!!!
+            string input = "";
+            ArrayList arrOfInput = new ArrayList();
+
+            Console.WriteLine("Enter a number: ");
+            input = Console.ReadLine();
+            while(input != "")
+            {
+                arrOfInput.Add(input);
+                Console.WriteLine("Enter another number or press Enter to stop entering numbers");
+                input = Console.ReadLine();
+           
+            }
+
+            foreach (string item in arrOfInput)
+            {
+                Console.WriteLine(item);
+            }
 
             #endregion
 
