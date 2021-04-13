@@ -7,8 +7,11 @@ namespace Exercises
     class Program
     {
         // Probaj da dodades funkcionalnost da moze da izleze skroz od aplikacijata, i proveri dali se dodeka e aktivna i se dodavaat novi juzeri, dali se zacuvuva dobro nizata so objekti juzeri i porakite od sekoj nov.
-        static void CheckStatusOfApp(User[] users)
+        static User[] CheckStatusOfApp(User[] users)
         {
+
+            User[] updatedUsersArray = users;
+
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("Enter 1 to login to your account and 2 to register!");
             Console.WriteLine("---------------------------------------------------");
@@ -25,16 +28,20 @@ namespace Exercises
                 if (userInput != 1 && userInput != 2)
                 {
                     Console.WriteLine("You can choose either 1 or 2.");
-                    CheckStatusOfApp(users);
+                    CheckStatusOfApp(updatedUsersArray);
                 }
                 else if (userInput == 2)
                 {
-                    while(Register(users));
+                    updatedUsersArray = Register(updatedUsersArray);
+                    
                     Console.WriteLine("Thank you for registering.");
-                    CheckStatusOfApp(users);
+                    CheckStatusOfApp(updatedUsersArray);
                 }
                 else
-                    Login(users);
+                    Login(updatedUsersArray);
+
+            return updatedUsersArray;
+
         }
 
         static User CheckIfUserExists(User[] users, string username, string password)
@@ -65,22 +72,23 @@ namespace Exercises
             CheckStatusOfApp(users);
         }
 
-        static bool Register(User[] users) // NE TI GI ZACUVUVA NOVITE JUZERI VO NIZATA OTKAKO KJE ZAVRSI REGISTRACIJATA I TOA STO IM PRIKAZUVAS
+        static User[] Register(User[] users) // NE TI GI ZACUVUVA NOVITE JUZERI VO NIZATA OTKAKO KJE ZAVRSI REGISTRACIJATA I TOA STO IM PRIKAZUVAS
         {
             Console.WriteLine("Enter a username");
             string username = Console.ReadLine();
-            if (username.Length < 5 || username.Length > 19)
+            while (username.Length < 5 || username.Length > 19)
             {
                 Console.WriteLine("Please enter a username that is longer than 4 characters and shorter than 20!");
-                return true;
+                username = Console.ReadLine();
+
             }
 
             foreach (User user in users)
             {
-                if (Equals(user.Username, username))
+                while (Equals(user.Username, username))
                 {
                     Console.WriteLine("This username already exists! Please try again with a different username!");
-                    return true;
+                    Register(users);
                 }
             }
 
@@ -142,7 +150,7 @@ namespace Exercises
 
             }
 
-            return false;
+            return users;
         }
         
         static void Main(string[] args)
