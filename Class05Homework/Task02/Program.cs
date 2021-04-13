@@ -90,7 +90,7 @@ namespace Task02
 
                 Task02Methods.RaceCars(carObjectsToRace[0], carObjectsToRace[1]);
 
-                Console.WriteLine("Do you wanna race again? Press Y if you do, and any key to exit the game.");
+                Console.WriteLine("Do you wanna race again? Enter Y if you do, and N to exit the game.");
 
                 yesOrNo = Console.ReadLine().ToLower();
                 while (yesOrNo != "y" && yesOrNo != "n")
