@@ -52,7 +52,7 @@ namespace Exercises
             }
             return null;
         }
-
+        
         static void Login(User[] users) 
         {
             Console.WriteLine("Enter a username");
@@ -67,12 +67,19 @@ namespace Exercises
                 CheckStatusOfApp(users);
             }
 
-            Console.WriteLine("These are your messages:");
-            user.ShowMessages();
+            if(user.Messages.Length == 0)
+                Console.WriteLine("You have no messages");
+            else
+            {
+                Console.WriteLine("These are your messages:");
+                user.ShowMessages();
+            }
+
             CheckStatusOfApp(users);
+
         }
 
-        static User[] Register(User[] users) // NE TI GI ZACUVUVA NOVITE JUZERI VO NIZATA OTKAKO KJE ZAVRSI REGISTRACIJATA I TOA STO IM PRIKAZUVAS
+        static User[] Register(User[] users) 
         {
             Console.WriteLine("Enter a username");
             string username = Console.ReadLine();
