@@ -935,10 +935,13 @@ namespace MovieStoreServices
 
             foreach (Member member in members)
             {
-               
-
+                Console.WriteLine(member.UserName);
                 if (memberUserName == member.UserName)
+                {
                     memberToDelete = member;
+                    break;
+                }
+                    
                 else
                     memberToDelete = null;
             }
@@ -1012,7 +1015,7 @@ namespace MovieStoreServices
                     break;
             }
 
-            // Pazi dali kje ti se sluci istiot problem so login&registerApp, odnosno, so login i site drugi metodi, gledaj da gi vrakjas novite, izmeneti nizi i za juzeri, i za employees i za movies, pa vidi dali ovde na kraj so loop-ov sto go sozdavas da e aplikacijava aktivna i da se povika odnovo, se povikuva so izmenetite nizi. Isto taka, pred ovoj red probaj so eden if (ili neso dr) da mu dades moznost na korisnikot da izleze od aplikacijata, else CheckStatusOfApp nanovo povikaj ja, kako sto ti e ovde napisano.
+           
         }
         #endregion
 
