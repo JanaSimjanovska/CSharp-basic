@@ -62,7 +62,7 @@ namespace MovieStoreApp
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nOops, looks like something went wrong :( You probably didn't enter a number :/ Let's see:");
                     Console.WriteLine($"\n{ex.Message}");
-                    Console.WriteLine("\nOh well, NVM :) Just give it another shot");
+                    Console.WriteLine("\nOh well, NVM :) Just give it another shot.");
                     Console.ResetColor();
                     MovieStoreAppFunctionalities.PressAnyKey();
                 }

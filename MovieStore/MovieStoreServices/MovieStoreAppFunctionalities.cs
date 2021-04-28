@@ -742,7 +742,6 @@ namespace MovieStoreServices
 
         public static void EmployeeMenu(Employee employee, List<Member> members, List<Movie> movies, List<int> userIds)
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\n==================================================");
             Console.WriteLine($"******************** MAIN MENU *******************");
@@ -822,7 +821,9 @@ namespace MovieStoreServices
 
             for (int i = 0; i < members.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {members[i].FirstName} {members[i].LastName}");
+                Console.Write($"{i + 1}. ");
+                members[i].DisplayInfo();
+
             }
 
             Console.ResetColor();
@@ -939,6 +940,7 @@ namespace MovieStoreServices
                 if (memberUserName == member.UserName)
                 {
                     memberToDelete = member;
+                    
                     break;
                 }
                     

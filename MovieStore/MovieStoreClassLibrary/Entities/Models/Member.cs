@@ -33,7 +33,8 @@ namespace MovieStoreClassLibrary.Entities.Models
 
         public void DisplayInfo()
         {
-            Console.WriteLine($"{FirstName} {LastName} | Registered on: {DateOfRegistration}");
+            string formattedDate = DateOfRegistration.ToString("dd-MMM-yyyy");
+            Console.WriteLine($"{FirstName} {LastName} | Registered on: {formattedDate}");
         }
 
     }
