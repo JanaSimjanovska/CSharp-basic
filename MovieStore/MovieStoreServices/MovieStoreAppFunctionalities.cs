@@ -594,21 +594,33 @@ namespace MovieStoreServices
         public static void ViewRentedMovies(User loggedInUser)
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n------------------------------------------");
-            Console.WriteLine("These are the movies that you have rented:");
-            Console.WriteLine("------------------------------------------\n");
 
-            for (int i = 0; i < loggedInUser.Movies.Count; i++)
+            if (loggedInUser.Movies.Count == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                Console.WriteLine($"{i + 1}. {loggedInUser.Movies[i].Title}");
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("\n------------------------------------------");
+                Console.WriteLine("You have no rented movies currently.");
+                Console.WriteLine("------------------------------------------\n");
             }
 
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n------------------------------------------");
-           
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("\n------------------------------------------");
+                Console.WriteLine("These are the movies that you have rented:");
+                Console.WriteLine("------------------------------------------\n");
+
+                for (int i = 0; i < loggedInUser.Movies.Count; i++)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    Console.WriteLine($"{i + 1}. {loggedInUser.Movies[i].Title}");
+                }
+
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("\n------------------------------------------");
+            }
+
 
             Console.ResetColor();
             PressAnyKey();
